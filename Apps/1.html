@@ -103,10 +103,26 @@
     }),
     baseLayerPicker : false
   });
+  viewer.scene.globe.enableLighting = true;
   var scene = viewer.scene;
   var globe = scene.globe;
   globe.enableLighting = true;
 
+  /*
+   * 5 Adding an image on globe
+  */
+  // var viewer = new Cesium.Viewer('cesiumContainer', {
+  //   imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
+  //       url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
+  //   }),
+  //   baseLayerPicker : false
+  // });
+
+  // var layers = viewer.scene.imageryLayers;
+  // layers.addImageryProvider(new Cesium.SingleTileImageryProvider({
+  //   url: 'https://scontent.fdel1-1.fna.fbcdn.net/v/t1.0-9/51731881_1011833599002793_7479500802260729856_n.jpg?_nc_cat=109&_nc_ht=scontent.fdel1-1.fna&oh=4c08bce1c297ac16caf0e62d29759c4e&oe=5D940D8B',
+  //   //rectangle: Cesium.Rectangle.fromDegrees(-75.0, 28.0, -55.0, 60.0)
+  // }));
   </script>
 </body>
 </html>
