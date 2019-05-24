@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Use correct character set. -->
+  <meta charset="utf-8">
+  <!-- Tell IE to use the latest, best version. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <title>MMI Globe :)</title>
+  <script src="../Build/Cesium/Cesium.js"></script>
+  <style>
+      @import url(../Build/Cesium/Widgets/widgets.css);
+      html, body, #cesiumContainer {
+          width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+      }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <script>
+    /*
+     * First Excercise
+     * Loading the earth with widgets
+    */
+    /*var viewer = new Cesium.Viewer('cesiumContainer');*/
+
+    /*
+     * Second Excercise
+     * 
+    */
+      // var viewer = new Cesium.Viewer('cesiumContainer', {
+      //   imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
+      //       url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
+      //   }),
+      //   baseLayerPicker : false
+      // });
+
+
+      /*
+     * 3 Excercise
+     * 
+    */
+    // var viewer = new Cesium.Viewer('cesiumContainer', {
+    //     imageryProvider : new Cesium.UrlTemplateImageryProvider({
+    //         url : 'https://cesiumjs.org/tilesets/imagery/naturalearthii/{z}/{x}/{reverseY}.jpg',
+    //         credit : '© Analytical Graphics, Inc.',
+    //         tilingScheme : new Cesium.GeographicTilingScheme(),
+    //         maximumLevel : 5
+    //     })
+    // });
+
+    // var layers = viewer.scene.imageryLayers;
+
+    // layers.addImageryProvider(new Cesium.SingleTileImageryProvider({
+    //     url : '../Build/Cesium/images/cesium_credit.png',
+    //     rectangle : Cesium.Rectangle.fromDegrees(-75.0, 28.0, -67.0, 29.75)
+    // }));
+    // var blackMarble = layers.addImageryProvider(new Cesium.TileMapServiceImageryProvider({
+    //     url : '//cesiumjs.org/tilesets/imagery/blackmarble',
+    //     maximumLevel : 8,
+    //     credit : 'Black Marble imagery courtesy NASA Earth Observatory'
+    // }));
+    // Access Natural Earth II imagery, which uses a TMS tiling scheme and Geographic (EPSG:4326) project
+// var tms = new Cesium.UrlTemplateImageryProvider({
+//     url : 'https://cesiumjs.org/tilesets/imagery/naturalearthii/{z}/{x}/{reverseY}.jpg',
+//     credit : '© Analytical Graphics, Inc.',
+//     tilingScheme : new Cesium.GeographicTilingScheme(),
+//     maximumLevel : 5
+// });
+// Access the CartoDB Positron basemap, which uses an OpenStreetMap-like tiling scheme.
+// var positron = new Cesium.UrlTemplateImageryProvider({
+//     url : 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+//     credit : 'Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.'
+// });
+// // Access a Web Map Service (WMS) server.
+// var wms = new Cesium.UrlTemplateImageryProvider({
+//    url : 'https://programs.communications.gov.au/geoserver/ows?tiled=true&' +
+//          'transparent=true&format=image%2Fpng&exceptions=application%2Fvnd.ogc.se_xml&' +
+//          'styles=&service=WMS&version=1.1.1&request=GetMap&' +
+//          'layers=public%3AMyBroadband_Availability&srs=EPSG%3A3857&' +
+//          'bbox={westProjected}%2C{southProjected}%2C{eastProjected}%2C{northProjected}&' +
+//          'width=256&height=256',
+//    rectangle : Cesium.Rectangle.fromDegrees(96.799393, -43.598214999057824, 153.63925700000001, -9.2159219997013)
+// });
+// // Using custom tags in your template url.
+// var custom = new Cesium.UrlTemplateImageryProvider({
+//    url : 'https://yoururl/{Time}/{z}/{y}/{x}.png',
+//    customTags : {
+//        Time: function(imageryProvider, x, y, level) {
+//            return '20171231'
+//        }
+//    }
+// });
+
+  /*
+  * 4 day/Night effect
+  */
+  
+  var viewer = new Cesium.Viewer('cesiumContainer', {
+    imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
+        url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
+    }),
+    baseLayerPicker : false
+  });
+  var scene = viewer.scene;
+  var globe = scene.globe;
+  globe.enableLighting = true;
+
+  </script>
+</body>
+</html>
