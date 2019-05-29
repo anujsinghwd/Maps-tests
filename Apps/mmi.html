@@ -27,7 +27,7 @@
 
     /*
      * Second Excercise
-     * 
+     *
     */
       // var viewer = new Cesium.Viewer('cesiumContainer', {
       //   imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
@@ -39,7 +39,7 @@
 
       /*
      * 3 Excercise
-     * 
+     *
     */
     // var viewer = new Cesium.Viewer('cesiumContainer', {
     //     imageryProvider : new Cesium.UrlTemplateImageryProvider({
@@ -93,20 +93,27 @@
 //    }
 // });
 
+
   /*
   * 4 day/Night effect
   */
-  
-  var viewer = new Cesium.Viewer('cesiumContainer', {
-    imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
-        url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
+  //https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
+//https://{s}.mapmyindia.com/advancedmaps/v1/f1271754e8d347df485845099f7845e5/still_map/{z}/{x}/{y}.png
+  const viewer = new Cesium.Viewer('cesiumContainer', {
+    imageryProvider: new Cesium.UrlTemplateImageryProvider({
+       url : 'https://{s}.mapmyindia.com/advancedmaps/v1/a3bfb6dd8ae8a29fa537053d42eef977/still_map/{z}/{x}/{y}.png',
+       subdomains: ['mt0', 'mt1', 'mt2', 'mt3', 'mt4'],
+       minimumLevel: 4,
+       maximumLevel: 19
     }),
     baseLayerPicker : false
   });
-  viewer.scene.globe.enableLighting = true;
-  var scene = viewer.scene;
-  var globe = scene.globe;
-  globe.enableLighting = true;
+  // var center = Cesium.Cartesian3.fromDegrees(74.2236328125, 24.587090339209634);
+  //viewer.camera.lookAt(center, new Cesium.Cartesian3(0.0, 0.0, 12200000.0));
+  // viewer.scene.globe.enableLighting = true;
+  // var scene = viewer.scene;
+  // var globe = scene.globe;
+  // globe.enableLighting = true;
 
   /*
    * 5 Adding an image on globe
